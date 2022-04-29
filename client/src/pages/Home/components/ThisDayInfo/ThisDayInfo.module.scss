@@ -5,10 +5,9 @@
   padding: 40px;
   max-width: 750px;
   width: 100%;
-  background: $lite-background;
+  background: var(#{--components-background-default});
   box-shadow: $box-shadow;
   border-radius: $border-radius;
-  z-index: 2;
 }
 
 .item {
@@ -49,7 +48,7 @@
   }
 
   .indicator__value {
-    color: $lite-color;
+    color: var(#{--text-color-default});
     font-size: 14px;
     line-height: 17px;
   }
@@ -59,10 +58,10 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: -1;
+  // z-index: -1;
 }
 
 .this__day_info_item{
-  z-index: 2;
+  // z-index: 2;
 }
 

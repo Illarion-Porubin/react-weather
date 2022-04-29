@@ -10,8 +10,8 @@
   padding: 40px;
   max-width: 750px;
   width: 100%;
-  background: $lite-background;
-  box-shadow: $box-shadow;
+  background: var(#{--components-background-default});
+  box-shadow: var(#{--card-shadow-default});
   border-radius: $border-radius;
   z-index: 1001;
 }
@@ -31,7 +31,6 @@
   cursor: pointer;
   svg {
     transition: 0.3s;
-    // fill: red;
   }
   &:hover {
     svg {
@@ -50,8 +49,8 @@
   .day__name {
     font-size: 25px;
     line-height: 30px;
-    color: #000;
     margin-bottom: 12px;
+    color: var(#{--text-color-default});
   }
   .img {
     svg {

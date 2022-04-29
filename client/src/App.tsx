@@ -3,12 +3,12 @@ import { Home } from "./pages/Home/Home";
 import { MonthStatistics } from "./pages/MonthStatistics/MonthStatistics";
 import { Route, Switch } from "react-router-dom";
 import { Header } from "./shared/Header/Header";
-import { Popup } from "./shared/Popup/Popup";
+// import { Popup } from "./shared/Popup/Popup";
 
 function App() {
   return (
     <div className="App">
-      <Popup />
+      {/* <Popup /> */}
       <div className="container">
         <Header />
         <Switch>
