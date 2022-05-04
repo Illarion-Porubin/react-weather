@@ -15,7 +15,7 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_2_133)">
+          <g clipPath="url(#clip0_2_133)">
             <path
               d="M15.4056 2.98156H19.1057C19.308 2.98156 19.4719 2.81759 19.4719 2.61533C19.4719 2.41308 19.308 2.24911 19.1057 2.24911H15.4056C15.2033 2.24911 15.0394 2.41308 15.0394 2.61533C15.0394 2.81759 15.2034 2.98156 15.4056 2.98156Z"
               fill="#4F667A"
@@ -112,7 +112,7 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g clip-path="url(#clip0_2_124)">
+          <g clipPath="url(#clip0_2_124)">
             <path
               d="M10.1345 0.281303C9.81729 -0.0359516 9.34139 -0.115293 8.94479 0.201998C8.94479 0.201998 8.86549 0.201998 8.86549 0.281303C8.23094 1.07446 2.3615 8.21295 2.3615 11.8615C2.3615 15.8274 5.53416 19 9.5 19C13.4658 19 16.6385 15.8274 16.6385 11.8615C16.6385 8.21295 10.7691 1.07446 10.1345 0.281303Z"
               fill="url(#paint0_linear_2_124)"
@@ -139,8 +139,8 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
               y2="5.22218"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#34CDFA" />
-              <stop offset="1" stop-color="#E8D9F1" />
+              <stop stopColor="#34CDFA" />
+              <stop offset="1" stopColor="#E8D9F1" />
             </linearGradient>
             <clipPath id="clip0_2_124">
               <rect width="19" height="19" fill="white" />

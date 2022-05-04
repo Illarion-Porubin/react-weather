@@ -1,14 +1,17 @@
 import { GlobalSvgSelecotr } from "../../../../assets/icons/global/GlobalSvgSelecotr";
+import { Weather } from "../../../../store/tipes/tipes";
 import s from "./ThisDay.module.scss";
 
-interface Props {}
+interface Props {
+  weather: Weather
+}
 
-export const ThisDay = (props: Props) => {
+export const ThisDay = ({ weather }: Props) => {
   return (
     <div className={s.this__day}>
       <div className={s.top__block}>
         <div className={s.top__block_wrapper}> 
-          <div className={s.this__temp}>20<span>°</span></div>
+          <div className={s.this__temp}>{Math.floor(weather.main.temp)}<span>°</span></div>
           <div className={s.this__day_name}>Сегодня</div>
         </div>
         <GlobalSvgSelecotr id="sun"/>

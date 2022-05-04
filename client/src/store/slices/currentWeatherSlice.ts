@@ -6,6 +6,7 @@ type CurrentWeather = {
   weather: Weather,
   isLoading: boolean,
   response: Response;
+  filter: string;
 }
 
 type Response = {
@@ -13,19 +14,31 @@ type Response = {
   message: string,
 }
 
-const initialState = {
-  weather: {},
+const initialState: CurrentWeather = {
+  weather: {
+    main: {
+      temp: 0,
+    }
+  },
   isLoading: false,
+  filter: "week",
   response: {
     status: 0,
     message: ''
   }
 }
 
+console.log(initialState.filter, 'state');
+
+
 export const currentWeatherSlice = createSlice({
+  
   name: 'current_weather',
   initialState,
   reducers: {
+    filter(state, action) {
+      state.filter = action.payload
+    },
     fetchCurrentWeather(state) {
       state.isLoading = true;
     },

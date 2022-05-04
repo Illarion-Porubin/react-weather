@@ -1,0 +1,40 @@
+@import '../../../../styles//variables.scss';
+
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.concel,
+.tab {
+  box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  border-radius: 5px;
+  padding: 9px 20px;
+  border-color: $light-background;
+  margin-right: 15px;
+  color: var(#{--text-color-default});
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  background: var(#{--components-background-default});
+  cursor: pointer;
+}
+
+.concel {
+  margin-right: 0;
+}
+
+.tabs__wrapper {
+  display: flex;
+}
+
+.tab {
+  &.active {
+    background: $primary-colors;
+    color: #fff;
+  }
+}

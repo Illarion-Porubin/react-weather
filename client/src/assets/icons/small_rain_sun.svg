@@ -6,16 +6,16 @@
 <path d="M14 21C14 25.97 18.03 30 23 30C27.502 30 31.23 26.696 31.894 22.38C32.55 22.134 33.258 22 34 22C37.314 22 40 24.686 40 28C40 31.314 37.314 34 34 34H12C7.582 34 4 30.418 4 26C4 21.582 7.582 18 12 18C12.834 18 13.636 18.128 14.392 18.364C14.136 19.198 14 20.082 14 21Z" fill="url(#paint2_radial_2_530)"/>
 <defs>
 <linearGradient id="paint0_linear_2_530" x1="40" y1="8" x2="28.7832" y2="19.0723" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FFB301"/>
-<stop offset="1" stop-color="#FFC533"/>
+<stop stopColor="#FFB301"/>
+<stop offset="1" stopColor="#FFC533"/>
 </linearGradient>
 <linearGradient id="paint1_linear_2_530" x1="22" y1="12" x2="22" y2="34" gradientUnits="userSpaceOnUse">
-<stop stop-color="#9FC7FF"/>
-<stop offset="1" stop-color="#9BC1F5"/>
+<stop stopColor="#9FC7FF"/>
+<stop offset="1" stopColor="#9BC1F5"/>
 </linearGradient>
 <radialGradient id="paint2_radial_2_530" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(15.0679 -22.6966) rotate(-90) scale(20.9574 6.69705)">
-<stop stop-color="#486DA8" stop-opacity="0.4"/>
-<stop offset="1" stop-color="#486DA8" stop-opacity="0"/>
+<stop stopColor="#486DA8" stopOpacity="0.4"/>
+<stop offset="1" stopColor="#486DA8" stopOpacity="0"/>
 </radialGradient>
 </defs>
 </svg>

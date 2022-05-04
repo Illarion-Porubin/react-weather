@@ -1,7 +1,6 @@
 import React from "react";
 import s from "./Days.module.scss";
 import { Card } from "./Card";
-import { Tabs } from "./Tabs";
 
 interface Props {}
 
@@ -15,6 +14,8 @@ export interface Day {
 }
 
 export const Days = (props: Props) => {
+
+
   const days: Day[] = [
     {
       day: "Сегодня",
@@ -75,10 +76,9 @@ export const Days = (props: Props) => {
   ];
   return (
     <>
-      <Tabs />
       <div className={s.days}>
-        {days.map((day: Day) => (
-          <Card day={day} />
+        {days.map((day: Day, index) => (
+          <Card day={day} key={index} />
         ))}
       </div>
     </>
