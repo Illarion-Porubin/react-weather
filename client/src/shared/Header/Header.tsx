@@ -74,7 +74,7 @@ export const Header = (props: Props) => {
         <input
           className={s.input}
           value={text}
-          type="text"
+          type='text'
           onChange={(e) => setState(e.target.value)}
           onKeyDown={keyDownHandler}
         />
