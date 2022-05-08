@@ -9,8 +9,8 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
     case "temp":
       return (
         <svg
-          width="25"
-          height="25"
+          width="36"
+          height="36"
           viewBox="0 0 25 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
           </g>
           <defs>
             <clipPath id="clip0_2_133">
-              <rect width="25" height="25" fill="white" />
+              <rect width="36" height="36" fill="white" />
             </clipPath>
           </defs>
         </svg>
@@ -83,8 +83,8 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
     case "wind":
       return (
         <svg
-          width="20"
-          height="20"
+          width="36"
+          height="36"
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -106,8 +106,8 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
     case "pressure":
       return (
         <svg
-          width="19"
-          height="19"
+          width="36"
+          height="36"
           viewBox="0 0 19 19"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +143,7 @@ export const IndicatorSvgSelector = ({ id }: Props) => {
               <stop offset="1" stopColor="#E8D9F1" />
             </linearGradient>
             <clipPath id="clip0_2_124">
-              <rect width="19" height="19" fill="white" />
+              <rect width="36" height="36" fill="white" />
             </clipPath>
           </defs>
         </svg>

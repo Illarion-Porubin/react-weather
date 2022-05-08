@@ -1,6 +1,8 @@
 import React from "react";
 import s from "./Days.module.scss";
 import { Card } from "./Card";
+import { useCustomSelector } from "../../../../hooks/store";
+import { selectCurrentWeatherData } from "../../../../store/selectors";
 
 interface Props {}
 
@@ -14,8 +16,7 @@ export interface Day {
 }
 
 export const Days = (props: Props) => {
-
-
+  const { weather } = useCustomSelector(selectCurrentWeatherData);
   const days: Day[] = [
     {
       day: "Сегодня",
@@ -74,6 +75,7 @@ export const Days = (props: Props) => {
       info: "Солнечно",
     },
   ];
+
   return (
     <>
       <div className={s.days}>

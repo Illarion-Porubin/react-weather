@@ -16,10 +16,28 @@ type Response = {
 
 const initialState: CurrentWeather = {
   weather: {
+    weather: {
+      0: {
+        description: '',
+        main: ''
+      },
+    },
+    timezone: 0,
+    dt: 0,
+    sys: {
+      sunrise: 0,
+      sunset: 0
+    },
+    name: '',
     main: {
       temp: 0,
-    }
+      pressure: 0
+    },
+    wind: {
+      speed: 0
+    },
   },
+
   isLoading: false,
   filter: "week",
   response: {
@@ -32,7 +50,6 @@ console.log(initialState.filter, 'state');
 
 
 export const currentWeatherSlice = createSlice({
-  
   name: 'current_weather',
   initialState,
   reducers: {
@@ -47,7 +64,7 @@ export const currentWeatherSlice = createSlice({
       action: PayloadAction<AxiosResponse<Weather>>
     ) {
       state.isLoading = false;
-      state.weather = action.payload.data;
+      state.weather = action.payload.data; //сразу берем данные из data 
       state.response = {
         status: action.payload.status,
         message: action.payload.statusText,

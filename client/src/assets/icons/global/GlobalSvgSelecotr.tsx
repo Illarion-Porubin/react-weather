@@ -214,7 +214,7 @@ export const GlobalSvgSelecotr = ({ id }: Props) => {
         </svg>
       );
 
-    case "rain":
+    case "Rain":
       return (
         <svg
           width="48"
@@ -262,7 +262,7 @@ export const GlobalSvgSelecotr = ({ id }: Props) => {
         </svg>
       );
 
-    case "mainly_cloudy":
+    case "Clouds":
       return (
         <svg
           width="48"

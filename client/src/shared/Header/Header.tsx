@@ -7,6 +7,7 @@ import { Theme } from "../../context/ThemeConext";
 import { fetchCurrentWeather } from "../../store/thunks/fetchCurrentWeather";
 import { useCustomDispatch } from "../../hooks/store";
 
+
 interface Props {}
 
 export const Header = (props: Props) => {
@@ -38,6 +39,10 @@ export const Header = (props: Props) => {
       ...styles,
       minWidth: "14rem",
       backgroundColor: theme.theme === Theme.DARK ? "#4F4F4F" : "#fff",
+    }),
+    container: (styles: any) => ({
+      ...styles,
+      zIndex: 3,
     }),
     singleValue: (styles: any) => ({
       ...styles,
@@ -74,7 +79,7 @@ export const Header = (props: Props) => {
         <input
           className={s.input}
           value={text}
-          type='text'
+          type="text"
           onChange={(e) => setState(e.target.value)}
           onKeyDown={keyDownHandler}
         />

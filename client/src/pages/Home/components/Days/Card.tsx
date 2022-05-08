@@ -1,23 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./Days.module.scss";
 import { Day } from "./Days";
 import { GlobalSvgSelecotr } from "../../../../assets/icons/global/GlobalSvgSelecotr";
+import { Popup } from "../../../../shared/Popup/Popup";
 
 interface Props {
   day: Day;
 }
 
 export const Card = ({ day }: Props) => {
+  // const [popup, setPopup] = useState(false);
+
+  // const switchPopup = () => {
+  //   setPopup(true );
+  // };
+
   return (
-    <div className={s.card}>
-      <div className={s.day}>{day.day}</div>
-      <div className={s.day__info}>{day.day_info}</div>
-      <div className={s.img}>
-        <GlobalSvgSelecotr id={day.icon_id} />
+    <>
+      {/* {popup ? <Popup/> : <></>} */}
+      <div className={s.card}>
+        <div className={s.day}>{day.day}</div>
+        <div className={s.day__info}>{day.day_info}</div>
+        <div className={s.img}>
+          <GlobalSvgSelecotr id={day.icon_id} />
+        </div>
+        <div className={s.temp__day}>{day.temp_day}</div>
+        <div className={s.temp__night}>{day.temp_night}</div>
+        <div className={s.info}>{day.info}</div>
       </div>
-      <div className={s.temp__day}>{day.temp_day}</div>
-      <div className={s.temp__night}>{day.temp_night}</div>
-      <div className={s.info}>{day.info}</div>
-    </div>
+    </>
   );
 };
