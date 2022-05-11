@@ -5,7 +5,9 @@ import s from "./Header.module.scss";
 import { useTheme } from "../../hooks/useTheme";
 import { Theme } from "../../context/ThemeConext";
 import { fetchCurrentWeather } from "../../store/thunks/fetchCurrentWeather";
-import { useCustomDispatch } from "../../hooks/store";
+import { currentWeatherSlice } from "../../store/slices/currentWeatherSlice";
+import { useCustomDispatch, useCustomSelector } from "../../hooks/store";
+import { selectCurrentWeatherData } from "../../store/selectors";
 
 
 interface Props {}
@@ -14,7 +16,8 @@ export const Header = (props: Props) => {
   const [text, setState] = useState("");
   const theme = useTheme();
   const dispatch = useCustomDispatch();
-
+  const { weather } = useCustomSelector(selectCurrentWeatherData);
+  const { filter } = useCustomSelector(selectCurrentWeatherData);
   const changeTheme = () => {
     theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
   };
@@ -63,9 +66,14 @@ export const Header = (props: Props) => {
     }
   };
 
+
   useEffect(() => {
     dispatch(fetchCurrentWeather("Novorossiysk"));
+    dispatch(currentWeatherSlice.actions.filter(weather.list[0].dt))
   }, []);
+
+  console.log(filter, 'filter')
+
 
   return (
     <header className={s.header}>

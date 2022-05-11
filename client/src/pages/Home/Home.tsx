@@ -20,7 +20,6 @@ export const Home = (props: Props) => {
   // })
 
   const { filter } = useCustomSelector(selectCurrentWeatherData);
-
   return (
     <div className={s.home}>
       <div className={s.wrapper}>
@@ -28,14 +27,10 @@ export const Home = (props: Props) => {
         <ThisDayInfo weather={weather} />
       </div>
       <Tabs />
-      {filter === "week" ? (
+      {filter ? (
         <Days />
-      ) : filter === "month" ? (
-        "На месяц"
-      ) : filter === "tenDays" ? (
-        "На 10 дней"
       ) : (
-        <></>
+        <></> // можно на отмену повесть фильтр и закрывать дни
       )}
     </div>
   );

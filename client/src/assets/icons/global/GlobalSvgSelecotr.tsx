@@ -66,7 +66,7 @@ export const GlobalSvgSelecotr = ({ id }: Props) => {
         </svg>
       );
 
-    case "sun":
+    case "Clear":
       return (
         <svg
           width="48"

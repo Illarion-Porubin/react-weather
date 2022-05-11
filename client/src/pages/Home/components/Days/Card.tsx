@@ -1,32 +1,31 @@
 import React, { useState } from "react";
-import s from "./Days.module.scss";
-import { Day } from "./Days";
 import { GlobalSvgSelecotr } from "../../../../assets/icons/global/GlobalSvgSelecotr";
+import s from "./Days.module.scss";
 import { Popup } from "../../../../shared/Popup/Popup";
+import { match } from "assert";
 
 interface Props {
-  day: Day;
+  day: any;
 }
 
 export const Card = ({ day }: Props) => {
-  // const [popup, setPopup] = useState(false);
+  const time = new Date(day.dt * 1000);
+  const newTime = `${time.getHours()}:${time.getMinutes()}${time.getSeconds()}`
+  let checTemp = Math.floor(Math.floor(day.main.temp)) >= 0 ? "+" : "-";
 
-  // const switchPopup = () => {
-  //   setPopup(true );
-  // };
-
+  console.log()
   return (
     <>
       {/* {popup ? <Popup/> : <></>} */}
       <div className={s.card}>
-        <div className={s.day}>{day.day}</div>
-        <div className={s.day__info}>{day.day_info}</div>
-        <div className={s.img}>
-          <GlobalSvgSelecotr id={day.icon_id} />
+        <div className={s.day}>{day.dt_txt.slice(5, 10)}</div>
+        <div className={s.day__info}>{newTime}</div>
+          <div className={s.img}>
+          <GlobalSvgSelecotr id={day.weather[0].main}/>
         </div>
-        <div className={s.temp__day}>{day.temp_day}</div>
-        <div className={s.temp__night}>{day.temp_night}</div>
-        <div className={s.info}>{day.info}</div>
+        <div className={s.temp__day}>{checTemp}{Math.floor(day.main.temp)}°</div>
+        <div className={s.temp__night}></div>
+        <div className={s.info}>{day.weather[0].description}</div>
       </div>
     </>
   );

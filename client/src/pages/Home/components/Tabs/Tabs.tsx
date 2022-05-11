@@ -1,44 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import s from "./Tabs.module.scss";
+import { useCustomSelector } from "../../../../hooks/store";
+import { selectCurrentWeatherData } from "../../../../store/selectors";
 import { currentWeatherSlice } from "../../../../store/slices/currentWeatherSlice";
+import s from "./Tabs.module.scss";
 
 interface Props {}
 
 export const Tabs = (props: Props) => {
-  let [filter, setFilter] = useState('week');
-  const dispatch = useDispatch();
-  const tabs = [
-    {
-      value: "На неделю",
-      mode: "week",
-    },
-    {
-      value: "На месяц",
-      mode: "month",
-    },
-    {
-      value: "На 10 дней",
-      mode: "tenDays",
-    },
-  ];
+  const { weather } = useCustomSelector(selectCurrentWeatherData);
+  const { filter } = useCustomSelector(selectCurrentWeatherData);
   
-  const filterSelect = (mode: string) => {
-    setFilter(mode)
-    dispatch(currentWeatherSlice.actions.filter(mode));
+  
+  const payloadDay = Array.from(new Set(weather.list.map(item => new Date(item.dt * 1000).toJSON().split("T")[0].slice(8, 10)).map(item => Number(item))))
+
+  
+  const dispatch = useDispatch();
+
+
+
+  const filterSelect = (day: any) => {
+    dispatch(currentWeatherSlice.actions.filter(day));
   };
 
+  console.log(filter, 'tabs');
 
+  
   return (
     <div className={s.tabs}>
       <div className={s.tabs__wrapper}>
-        {tabs.map((tab) => (
+        {payloadDay.map((day: any, index) => (
           <div
-            className={filter === tab.mode ? `${s.tab} + ${s.active}` : `${s.tab}`}
-            key={tab.value}
-            onClick={() => filterSelect(tab.mode)}
+            className={filter === day ? `${s.tab} + ${s.active}` : `${s.tab}`}
+            key={index}
+            onClick={() => filterSelect(day)}
           >
-            {tab.value}
+            {day}
           </div>
         ))}
       </div>

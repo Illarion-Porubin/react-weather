@@ -7,31 +7,35 @@ interface Props {
 }
 
 export const ThisDay = ({ weather }: Props) => {
-  // const currenTime = new Date((weather.sys.sunrise + (weather.sys.sunset - weather.sys.sunrise - weather.timezone ) + weather.timezone )  * 1000) ;
 
-  const currenTime = new Date(weather.dt*1000+(weather.timezone))
+  const sunriseTime = new Date((weather.city.sunrise ) * 1000);
+  const sunsetTime = new Date((weather.city.sunset ) * 1000)
+  let checTemp = Math.floor(weather.list[0].main.temp) >= 0 ? "+" : "-";
 
   return (
     <div className={s.this__day}>
       <div className={s.top__block}>
         <div className={s.top__block_wrapper}>
           <div className={s.this__temp}>
-            {Math.floor(weather.main.temp)}
-            <span>°</span>
+            <span>{checTemp}{Math.floor(weather.list[0].main.temp)}°</span>
           </div>
           <div className={s.this__day_name}>Сегодня</div>
         </div>
-        <GlobalSvgSelecotr id={weather.weather[0].main} />
+        <GlobalSvgSelecotr id={weather.list[0].weather[0].main} />
       </div>
       <div className={s.bottom__block}>
         <div className={s.this__data}>
-          Дата: <span>{currenTime.toISOString().split("T")[0]}</span>
+          {/* Дата: <span>{sunriseTime.toISOString().split("T")[0]}</span> */}
+          {/* Дата: <span>{weather.list[0].dt_txt}</span> */}
         </div>
         <div className={s.this__time}>
-          {/* Время: <span>{currenTime.toLocaleTimeString().slice(0,-3)}</span> */}
+          Восход: <span>{sunriseTime.toLocaleTimeString().slice(0,-3)}</span>
         </div>
         <div className={s.this__time}>
-          Город: <span>{weather.name}</span>
+          Закат : <span>{sunsetTime.toLocaleTimeString().slice(0,-3)}</span>
+        </div>
+        <div className={s.this__time}>
+          Город: <span>{weather.city.name}</span>
         </div>
       </div>
     </div>

@@ -1,22 +1,24 @@
 export type Weather = {
-  timezone: number,
-  dt: number,
-  sys: {
+  city: {
+    timezone: number,
     sunrise: number,
-    sunset: number
+    sunset: number,
+    name: string,
   },
-  name: string,
-  main: {
-    temp: number,
-    pressure: number
-  },
-  weather: {
-    0: {
-      description: string,
-      main: string
+  list: [{
+    dt: number,
+    dt_txt: string,
+    main: {
+      temp: number,
+      feels_like: number,
+      pressure: number,
     },
-  }
-  wind: {
-    speed: number
-  }
+    weather: [{
+      description: string,
+      main: string,
+    }],
+    wind: {
+      speed: number,
+    }
+  }]
 };

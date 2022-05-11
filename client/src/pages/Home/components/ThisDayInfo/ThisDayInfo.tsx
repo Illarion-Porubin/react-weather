@@ -15,29 +15,31 @@ export interface Item {
 }
 
 export const ThisDayInfo = ({weather}: Props) => {
-  let checkWind;
-  Math.ceil(weather.wind.speed) < 5 ? checkWind = 'м/с - легкий ветер' : checkWind = 'м/с - сильный ветер';
+  let checkWind = Math.ceil(weather.list[0].wind.speed) < 5 ? 'м/с - легкий ветер' : 'м/с - сильный ветер';
+  
 
   const items = [
     {
       icon_id: "temp",
       name: "Температура",
-      value: `Ощущается как ${Math.floor(weather.main.temp)}°`,
+      value: `${Math.floor(weather.list[0].main.temp)}° - ощущается как ${Math.floor(weather.list[0].main.feels_like)}°`,
     },
     {
       icon_id: "pressure",
       name: "Давление",
-      value: `${weather.main.pressure} мм ртутного столба`,
+      value: `${weather.list[0].main.pressure} мм ртутного столба`,
+
     },
     {
       icon_id: "precipitation",
       name: "Осадки",
-      value: `${weather.weather[0].description}`,
+      value: `${weather.list[0].weather[0].description}`,
+
     },
     {
       icon_id: "wind",
       name: "Ветер",
-      value: `${Math.ceil(weather.wind.speed)} ${checkWind}`,
+      value: `${Math.ceil(weather.list[0].wind.speed)} ${checkWind}`,
     },
   ];
   return (

@@ -4,6 +4,6 @@ import { Weather } from './../store/tipes/tipes';
 
 export class WeatherService {
   static getCurrentWeather(city: string): Promise<AxiosResponse<Weather>> {
-    return api.get<Weather>(`/weather?q=${city}&lang=ru`)
+    return api.get<Weather>(`/forecast?q=${city}&lang=ru`)
   }
 }

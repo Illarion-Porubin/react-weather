@@ -1,3 +1,4 @@
+import { fetchCurrentWeather } from './../thunks/fetchCurrentWeather';
 import { AxiosResponse } from 'axios';
 import { Weather } from './../tipes/tipes';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
@@ -6,7 +7,7 @@ type CurrentWeather = {
   weather: Weather,
   isLoading: boolean,
   response: Response;
-  filter: string;
+  filter: any;
 }
 
 type Response = {
@@ -16,30 +17,31 @@ type Response = {
 
 const initialState: CurrentWeather = {
   weather: {
-    weather: {
-      0: {
-        description: '',
-        main: ''
-      },
-    },
-    timezone: 0,
-    dt: 0,
-    sys: {
+    city: {
+      timezone: 0,
       sunrise: 0,
-      sunset: 0
+      sunset: 0,
+      name: '',
     },
-    name: '',
-    main: {
-      temp: 0,
-      pressure: 0
-    },
-    wind: {
-      speed: 0
-    },
+    list: [{
+      dt: 0,
+      dt_txt: '',
+      main: {
+        temp: 0,
+        feels_like: 0,
+        pressure: 0
+      },
+      weather: [{
+        description: '',
+        main: '',
+      }],
+      wind: {
+        speed: 0,
+      }
+    }]
   },
-
   isLoading: false,
-  filter: "week",
+  filter: Number(),
   response: {
     status: 0,
     message: ''
