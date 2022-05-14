@@ -69,11 +69,7 @@ export const Header = (props: Props) => {
 
   useEffect(() => {
     dispatch(fetchCurrentWeather("Novorossiysk"));
-    dispatch(currentWeatherSlice.actions.filter(weather.list[0].dt))
   }, []);
-
-  console.log(filter, 'filter')
-
 
   return (
     <header className={s.header}>

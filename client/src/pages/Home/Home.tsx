@@ -10,6 +10,8 @@ interface Props {}
 
 export const Home = (props: Props) => {
   const { weather } = useCustomSelector(selectCurrentWeatherData);
+  const { filter } = useCustomSelector(selectCurrentWeatherData);
+ 
 
   // const filter = useSelector((state: RootState) => {
   //   return state.currentWeatherSliceReducer.filter
@@ -19,7 +21,6 @@ export const Home = (props: Props) => {
   //   return selectCurrentWeatherData.currentWeatherSliceReducer.filter
   // })
 
-  const { filter } = useCustomSelector(selectCurrentWeatherData);
   return (
     <div className={s.home}>
       <div className={s.wrapper}>
@@ -28,7 +29,7 @@ export const Home = (props: Props) => {
       </div>
       <Tabs />
       {filter ? (
-        <Days />
+        <Days weather={weather}/>
       ) : (
         <></> // можно на отмену повесть фильтр и закрывать дни
       )}
