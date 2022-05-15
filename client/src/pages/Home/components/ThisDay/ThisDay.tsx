@@ -7,10 +7,9 @@ interface Props {
 }
 
 export const ThisDay = ({ weather }: Props) => {
-
   const sunriseTime = new Date((weather.city.sunrise ) * 1000);
   const sunsetTime = new Date((weather.city.sunset ) * 1000)
-  let checTemp = Math.floor(weather.list[0].main.temp) >= 0 ? "+" : "-";
+  const checTemp = Math.floor(weather.list[0].main.temp) >= 0 ? "+" : "-";
 
   return (
     <div className={s.this__day}>

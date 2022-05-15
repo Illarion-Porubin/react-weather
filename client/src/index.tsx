@@ -4,15 +4,20 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import { ThemeProvider } from "./provider/ThemeProvider";
+import { PopupProvider } from "./provider/PopupProvider";
 import { store } from "./store/store";
 import "./styles/index.scss";
+
+// const PopupContext = React.createContext()
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
         <ThemeProvider>
-          <App />
+          <PopupProvider>
+            <App />
+          </PopupProvider>
         </ThemeProvider>
       </Router>
     </Provider>

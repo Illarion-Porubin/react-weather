@@ -4,6 +4,7 @@ import { Days } from "./components/Days/Days";
 import { Tabs } from "./components/Tabs/Tabs";
 import { ThisDay } from "./components/ThisDay/ThisDay";
 import { ThisDayInfo } from "./components/ThisDayInfo/ThisDayInfo";
+
 import s from "./Home.module.scss";
 
 interface Props {}
@@ -11,15 +12,6 @@ interface Props {}
 export const Home = (props: Props) => {
   const { weather } = useCustomSelector(selectCurrentWeatherData);
   const { filter } = useCustomSelector(selectCurrentWeatherData);
- 
-
-  // const filter = useSelector((state: RootState) => {
-  //   return state.currentWeatherSliceReducer.filter
-  // })
-
-  // const filter = useCustomSelector((selectCurrentWeatherData) => {
-  //   return selectCurrentWeatherData.currentWeatherSliceReducer.filter
-  // })
 
   return (
     <div className={s.home}>

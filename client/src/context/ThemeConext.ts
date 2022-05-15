@@ -1,13 +1,13 @@
 import { createContext } from "react";
 
-interface Props {
-  theme: Theme;
-  changeTheme: (theme: Theme) => void;
-}
-
 export enum Theme {
   LIGHT = 'light',
   DARK = 'dark',
+}
+
+interface Props {
+  theme: Theme;
+  changeTheme: (theme: Theme) => void;
 }
 
 export const ThemeContext = createContext<Props>({

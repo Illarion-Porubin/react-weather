@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { GlobalSvgSelecotr } from "../../assets/icons/global/GlobalSvgSelecotr";
 import Select from "react-select";
 import s from "./Header.module.scss";
 import { useTheme } from "../../hooks/useTheme";
 import { Theme } from "../../context/ThemeConext";
 import { fetchCurrentWeather } from "../../store/thunks/fetchCurrentWeather";
-import { currentWeatherSlice } from "../../store/slices/currentWeatherSlice";
-import { useCustomDispatch, useCustomSelector } from "../../hooks/store";
-import { selectCurrentWeatherData } from "../../store/selectors";
-
+import { useCustomDispatch } from "../../hooks/store";
+import { useInput }  from "../../hooks/useInput";
 
 interface Props {}
 
 export const Header = (props: Props) => {
-  const [text, setState] = useState("");
   const theme = useTheme();
+  const input = useInput('');
   const dispatch = useCustomDispatch();
-  const { weather } = useCustomSelector(selectCurrentWeatherData);
-  const { filter } = useCustomSelector(selectCurrentWeatherData);
   const changeTheme = () => {
     theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
   };
@@ -58,15 +54,6 @@ export const Header = (props: Props) => {
     }),
   };
 
-  const keyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.code === "Enter") {
-      console.log(text)
-      dispatch(fetchCurrentWeather(text))
-      setState('')
-    }
-  };
-
-
   useEffect(() => {
     dispatch(fetchCurrentWeather("Novorossiysk"));
   }, []);
@@ -80,13 +67,14 @@ export const Header = (props: Props) => {
         <div className={s.title}>React weather</div>
       </div>
       <div className={s.wrapper}>
-        <input
-          className={s.input}
-          value={text}
+
+        <input className={s.input}
+          value={input.value}
           type="text"
-          onChange={(e) => setState(e.target.value)}
-          onKeyDown={keyDownHandler}
+          onChange={input.onChange}
+          onKeyDown={input.keyDownHandler}
         />
+
         <div className={s.change_theme} onClick={changeTheme}>
           <GlobalSvgSelecotr id="change-theme" />
         </div>

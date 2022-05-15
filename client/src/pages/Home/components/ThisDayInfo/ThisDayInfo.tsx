@@ -15,9 +15,7 @@ export interface Item {
 }
 
 export const ThisDayInfo = ({weather}: Props) => {
-  let checkWind = Math.ceil(weather.list[0].wind.speed) < 5 ? 'м/с - легкий ветер' : 'м/с - сильный ветер';
-  
-
+  const checkWind = Math.ceil(weather.list[0].wind.speed) < 5 ? 'м/с - легкий ветер' : 'м/с - сильный ветер';
   const items = [
     {
       icon_id: "temp",

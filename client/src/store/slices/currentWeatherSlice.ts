@@ -1,16 +1,15 @@
-import { fetchCurrentWeather } from './../thunks/fetchCurrentWeather';
 import { AxiosResponse } from 'axios';
 import { Weather } from './../tipes/tipes';
-
-
+import { PayloadDay } from './../tipes/tipes';
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type CurrentWeather = {
   weather: Weather,
+  payloadDay: PayloadDay,
   isLoading: boolean,
   response: Response;
-  payloadDay: number[],
+  payloadDays: number[],
   filter: any;
 }
 
@@ -44,8 +43,28 @@ const initialState: CurrentWeather = {
       }
     }]
   },
+  payloadDay: {
+    timezone: 0,
+    sunrise: 0,
+    sunset: 0,
+    name: '',
+    dt: 0,
+    dt_txt: '',
+    main: {
+      temp: 0,
+      feels_like: 0,
+      pressure: 0,
+    },
+    weather: [{
+      description: '',
+      main: '',
+    }],
+    wind: {
+      speed: 0,
+    }
+  },
   isLoading: false,
-  payloadDay: [],
+  payloadDays: [],
   filter: 0,
   response: {
     status: 0,
@@ -53,13 +72,15 @@ const initialState: CurrentWeather = {
   }
 }
 
-
 export const currentWeatherSlice = createSlice({
   name: 'current_weather',
   initialState,
   reducers: {
     filter(state, action) {
       state.filter = action.payload
+    },
+    payloadDays(state, action) {
+      state.payloadDays = action.payload
     },
     payloadDay(state, action) {
       state.payloadDay = action.payload

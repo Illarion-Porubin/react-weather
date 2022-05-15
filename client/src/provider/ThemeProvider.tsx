@@ -4,7 +4,7 @@ import { changeCssRootVariables } from '../model/ChangeCssRootVariables'
 import { storage } from "../model/Storage";
 
 interface Props {
-  children: ReactNode;
+  children: ReactNode; 
 }
 
 export const ThemeProvider = ({ children, ...props }: Props) => {
@@ -16,7 +16,7 @@ export const ThemeProvider = ({ children, ...props }: Props) => {
     setTheme(theme);
     changeCssRootVariables(theme);
   };
-
+  
   return (
     <ThemeContext.Provider
       value={{

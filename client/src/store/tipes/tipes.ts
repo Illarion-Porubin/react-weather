@@ -22,3 +22,25 @@ export type Weather = {
     }
   }]
 };
+
+
+export type PayloadDay = {
+  timezone: number,
+  sunrise: number,
+  sunset: number,
+  name: string,
+  dt: number,
+  dt_txt: string,
+  main: {
+    temp: number,
+    feels_like: number,
+    pressure: number,
+  },
+  weather: [{
+    description: string,
+    main: string,
+  }],
+  wind: {
+    speed: number,
+  }
+}

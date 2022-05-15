@@ -1,36 +1,46 @@
-import React from "react";
-// import { GlobalSvgSelecotr } from "../../assets/icons/global/GlobalSvgSelecotr";
-// import Select from "react-select";
 import { Item } from "../../pages/Home/components/ThisDayInfo/ThisDayInfo";
 import s from "./Popup.module.scss";
 import { ThisDayItem } from "../../pages/Home/components/ThisDayInfo/ThisDayItem";
 import { GlobalSvgSelecotr } from "../../assets/icons/global/GlobalSvgSelecotr";
+import { usePopup } from "../../provider/PopupProvider"
+import { useCustomSelector } from "../../hooks/store";
+import { selectCurrentWeatherData } from "../../store/selectors";
+
 
 interface Props {}
 
 export const Popup = (props: Props) => {
+  const popup = usePopup()
+  const { payloadDay } = useCustomSelector(selectCurrentWeatherData);
+  const checkWind = Math.ceil(payloadDay.wind.speed) < 5 ? 'м/с - легкий ветер' : 'м/с - сильный ветер';
+
   const items = [
     {
       icon_id: "temp",
       name: "Температура",
-      value: "20° - ощущается как 17°",
+      value: `${Math.floor(payloadDay.main.temp)}° - ощущается как ${Math.floor(payloadDay.main.feels_like)}°`,
     },
     {
       icon_id: "pressure",
       name: "Давление",
-      value: "765 мм ртутного столба - нормальное",
+      value: `${payloadDay.main.pressure} мм ртутного столба`,
+
     },
     {
       icon_id: "precipitation",
       name: "Осадки",
-      value: "Без осадков",
+      value: `${payloadDay.weather[0].description}`,
+
     },
     {
       icon_id: "wind",
       name: "Ветер",
-      value: "3 м/с юго-запад - легкий ветер",
+      value: `${Math.ceil(payloadDay.wind.speed)} ${checkWind}`,
     },
   ];
+
+  if(!popup.state) return null
+
   return (
     <>
       <div className={s.blur}></div>
@@ -53,7 +63,7 @@ export const Popup = (props: Props) => {
             <ThisDayItem item={item} key={index} />
           ))}
         </div>
-        <div className={s.close}>
+        <div className={s.close} onClick={popup.changeState}>
           <GlobalSvgSelecotr id="close" />
         </div>
       </div>
