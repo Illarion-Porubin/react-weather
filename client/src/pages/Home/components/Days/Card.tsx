@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import { GlobalSvgSelecotr } from "../../../../assets/icons/global/GlobalSvgSelecotr";
 import s from "./Days.module.scss";
 import { usePopup } from "../../../../provider/PopupProvider";
+import { PayloadDay } from "../../../../store/tipes/tipes"
 
 interface Props {
-  day: any;
+  day: PayloadDay;
 }
 
-export const Card = ({ day }: Props) => {
+
+export const Card: FC<Props> = ({ day }) => {
   const popup = usePopup();
   const time = new Date(day.dt * 1000);
   const checTemp = Math.floor(Math.floor(day.main.temp)) >= 0 ? "+" : "-";
   
-
-
   return (
     <>
       <div

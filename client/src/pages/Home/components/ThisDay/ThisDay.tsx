@@ -10,7 +10,7 @@ export const ThisDay = ({ weather }: Props) => {
   const sunriseTime = new Date((weather.city.sunrise ) * 1000);
   const sunsetTime = new Date((weather.city.sunset ) * 1000)
   const checTemp = Math.floor(weather.list[0].main.temp) >= 0 ? "+" : "-";
-
+  console.log(weather)
   return (
     <div className={s.this__day}>
       <div className={s.top__block}>

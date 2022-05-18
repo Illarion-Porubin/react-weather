@@ -8,8 +8,6 @@ import { PopupProvider } from "./provider/PopupProvider";
 import { store } from "./store/store";
 import "./styles/index.scss";
 
-// const PopupContext = React.createContext()
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

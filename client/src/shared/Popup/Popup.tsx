@@ -7,12 +7,16 @@ import { useCustomSelector } from "../../hooks/store";
 import { selectCurrentWeatherData } from "../../store/selectors";
 
 
+
 interface Props {}
 
 export const Popup = (props: Props) => {
   const popup = usePopup()
   const { payloadDay } = useCustomSelector(selectCurrentWeatherData);
+  const { weather } = useCustomSelector(selectCurrentWeatherData);
   const checkWind = Math.ceil(payloadDay.wind.speed) < 5 ? 'м/с - легкий ветер' : 'м/с - сильный ветер';
+  const time = new Date((payloadDay.dt ) * 1000).toLocaleTimeString().slice(0,5)
+  
 
   const items = [
     {
@@ -46,16 +50,16 @@ export const Popup = (props: Props) => {
       <div className={s.blur}></div>
       <div className={s.popup}>
         <div className={s.day}>
-          <div className={s.day__temp}>20°</div>
-          <div className={s.day__name}>Среда</div>
+          <div className={s.day__temp}>{Math.floor(payloadDay.main.temp)}°</div>
+          {/* <div className={s.day__name}>Среда</div> */}
           <div className={s.img}>
             <GlobalSvgSelecotr id='sun'/>
           </div>
           <div className={s.day__time}>
-            Время: <span>21:54</span>
+            Время: <span>{time}</span>
           </div>
           <div className={s.day__time}>
-            Город: <span>Санкт-Петербург</span>
+            Город: <span>{weather.city.name}</span>
           </div>
         </div>
         <div className={s.this__day_info_item}>
